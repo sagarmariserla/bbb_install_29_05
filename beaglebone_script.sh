@@ -13,7 +13,7 @@ echo y | sudo apt-get purge nginx-full
 echo y | sudo apt-get autoremove 
 echo y | sudo apt-get autoclean 
 echo "******************************************************************************PURGING script is over*********************************************************************"
-echo "*/30 * * * * root sudo service zwave_app restart" >> /etc/crontab
+sudo echo "*/30 * * * * root sudo service zwave_app restart" >> /etc/crontab
 sudo cp /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 sleep 2s
 echo "*******************************************************************************set time zone******************************************************************************"
