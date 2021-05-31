@@ -13,7 +13,7 @@ echo y | sudo apt-get purge nginx-full
 echo y | sudo apt-get autoremove 
 echo y | sudo apt-get autoclean 
 echo "******************************************************************************PURGING script is over*********************************************************************"
-sudo echo "*/30 * * * * root sudo service zwave_app restart" >> /etc/crontab
+
 sudo cp /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 sleep 2s
 echo "*******************************************************************************set time zone******************************************************************************"
@@ -72,6 +72,8 @@ echo "**************************************************************************
 cd /medha_gateway/config_change/ && sudo ./config
 echo "****************************************************************************reboot*************************************************************************************************"
 sudo rm -rf /medha_gateway/config_change/
+sudo -su
+sudo echo "*/30 * * * * root sudo service zwave_app restart" >> /etc/crontab
 
 sleep 3s
 sudo reboot
