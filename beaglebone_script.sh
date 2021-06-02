@@ -77,7 +77,7 @@ echo "**************************************************************************
 sudo rm -rf /medha_gateway/config_change/
 sudo chmod o+w /etc/crontab
 sudo echo "*/30 * * * * root sudo service zwave_app restart" >> /etc/crontab
-sudo chmod o+w /etc/crontab
+sudo chmod o-w /etc/crontab
 
 sleep 3s
 sudo reboot
