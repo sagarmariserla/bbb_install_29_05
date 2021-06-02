@@ -66,14 +66,12 @@ echo "**************************************************************************
 sudo bash $(pwd)/booting_script.sh $1 iot_frmwrk
 sudo bash $(pwd)/booting_script.sh $2 zwave_app
 
-
-sudo rm -rf $(pwd)/booting_script.sh Z_wave_intall_beaglebone beaglebone_script.sh ../bb*
 echo "*****************************************************************************chnage the configuration******************************************************************************"
 cd /medha_gateway/config_change/ && sudo ./config
 echo "****************************************************************************reboot*************************************************************************************************"
 sudo rm -rf /medha_gateway/config_change/
-sudo -su
+sudo su
 sudo echo "*/30 * * * * root sudo service zwave_app restart" >> /etc/crontab
-
+sudo rm -rf $(pwd)/booting_script.sh Z_wave_intall_beaglebone beaglebone_script.sh ../bb*
 sleep 3s
 sudo reboot
