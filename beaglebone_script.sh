@@ -69,10 +69,15 @@ sudo bash $(pwd)/booting_script.sh $2 zwave_app
 
 sudo rm -rf $(pwd)/booting_script.sh Z_wave_intall_beaglebone beaglebone_script.sh ../bb*
 echo "*****************************************************************************chnage the configuration******************************************************************************"
+
 cd /medha_gateway/config_change/ && sudo ./config
+
 echo "****************************************************************************reboot*************************************************************************************************"
+
 sudo rm -rf /medha_gateway/config_change/
-sudo su
+sudo chmod o+w /etc/crontab
 sudo echo "*/30 * * * * root sudo service zwave_app restart" >> /etc/crontab
+sudo chmod o+w /etc/crontab
+
 sleep 3s
 sudo reboot
