@@ -39,7 +39,7 @@ sudo mkdir /medha_gateway/local_server
 echo "******************************************************************************permission changing**-****************************************************************************** "
 sudo chmod +x iot_frmwrk*
 sudo chmod +x zwave_app*
-sudo chmod +x /config_change/config
+sudo chmod +x config
 
 sudo mv -f $(pwd)/iot_frm* zwave_app* app.cfg cmd_class.cfg zwave_device_rec.txt hard_reset_arm cron_job rm_boot_app.sh config_change/ /medha_gateway
 
@@ -70,11 +70,11 @@ sudo bash $(pwd)/booting_script.sh $2 zwave_app
 sudo rm -rf $(pwd)/booting_script.sh Z_wave_intall_beaglebone beaglebone_script.sh ../bb*
 echo "*****************************************************************************chnage the configuration******************************************************************************"
 
-cd /medha_gateway/config_change/ && sudo ./config
-
+#cd /medha_gateway/config_change/ && sudo ./config
+sudo ./config
 echo "****************************************************************************reboot*************************************************************************************************"
 
-sudo rm -rf /medha_gateway/config_change/
+#sudo rm -rf /medha_gateway/config_change/
 sudo chmod o+w /etc/crontab
 sudo echo "*/30 * * * * root sudo service zwave_app restart" >> /etc/crontab
 sudo chmod o-w /etc/crontab
