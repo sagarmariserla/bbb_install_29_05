@@ -5,13 +5,13 @@ case $VAR in
        	"iot_frmwrk")
 	       	Wants="Wants=mosquitto.service avahi-daemon.service"
 		After="After=mosquitto.service avahi-daemon.service network.target"
-		ExecStartPre=/bin/bash -c '/bin/echo iot_frmwrk_start $(date) >> /medha_gateway/crash.txt'
+		#ExecStartPre=/bin/bash -c '/bin/echo iot_frmwrk_start $(date) >> /medha_gateway/crash.txt'
 		;;
       	"zwave_app")
 	      	Wants="Wants=zipgateway.service iot_frmwrk.service"
 	       	After="After=network.target zipgateway.service iot_frmwrk.service"
-		ExecStartPre1="ExecStartPre=/usr/bin/sudo /usr/sbin/service zipgateway restart"
-		ExecStartPre2="ExecStartPre=/bin/sleep 10"
+		#ExecStartPre1="ExecStartPre=/usr/bin/sudo /usr/sbin/service zipgateway restart"
+		#ExecStartPre2="ExecStartPre=/bin/sleep 10"
 
 	       	;;
        	*)
