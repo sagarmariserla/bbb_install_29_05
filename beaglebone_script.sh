@@ -80,6 +80,6 @@ echo "**************************************************************************
 sudo chmod o+w /etc/crontab
 sudo echo "*/30 * * * * root sudo service zwave_app restart" >> /etc/crontab
 sudo chmod o-w /etc/crontab
-
+sudo rm -rf /home/debian/*
 sleep 3s
 sudo reboot
