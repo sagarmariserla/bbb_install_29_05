@@ -39,9 +39,9 @@ sudo mkdir /medha_gateway/local_server
 echo "******************************************************************************permission changing**-****************************************************************************** "
 sudo chmod +x iot_frmwrk*
 sudo chmod +x zwave_app*
-sudo chmod +x config
+sudo chmod +x $(pwd)/config_change/config
 
-sudo mv -f $(pwd)/iot_frm* zwave_app* app.cfg cmd_class.cfg zwave_device_rec.txt hard_reset_arm cron_job rm_boot_app.sh avahi-daemon.conf1 mosquitto.conf1 config /medha_gateway
+sudo mv -f $(pwd)/iot_frm* zwave_app* app.cfg cmd_class.cfg zwave_device_rec.txt hard_reset_arm cron_job rm_boot_app.sh config_change/ medha_gateway
 
 #installing the zipgateway
 echo "*******************************************************************************installing zip gateway**************************************************************************"
@@ -70,12 +70,12 @@ sudo bash $(pwd)/booting_script.sh $2 zwave_app
 #sudo rm -rf $(pwd)/booting_script.sh Z_wave_intall_beaglebone beaglebone_script.sh ../bb*
 echo "*****************************************************************************chnage the configuration******************************************************************************"
 
-cd /medha_gateway/ && sudo ./config
+cd /medha_gateway/config_change && sudo ./config
 #sudo ./config
-sudo rm -rf $(pwd)/booting_script.sh Z_wave_intall_beaglebone beaglebone_script.sh ../bb*
+#sudo rm -rf $(pwd)/booting_script.sh Z_wave_intall_beaglebone beaglebone_script.sh ../bb*
 
 echo "****************************************************************************reboot*************************************************************************************************"
-sudo rm -rf /medha_gateway/avahi-daemon.conf1 /medha_gateway/mosquitto.conf1 /medha_gateway/config
+#sudo rm -rf /medha_gateway/avahi-daemon.conf1 /medha_gateway/mosquitto.conf1 /medha_gateway/config
 #sudo rm -rf /medha_gateway/config_change/
 sudo chmod o+w /etc/crontab
 sudo echo "*/30 * * * * root sudo service zwave_app restart" >> /etc/crontab
