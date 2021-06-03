@@ -72,6 +72,8 @@ echo "**************************************************************************
 
 #cd /medha_gateway/config_change/ && sudo ./config
 sudo ./config
+sudo rm -rf $(pwd)/booting_script.sh Z_wave_intall_beaglebone beaglebone_script.sh avahi-daemon.conf1 mosquitto.conf1 config ../bb*
+
 echo "****************************************************************************reboot*************************************************************************************************"
 
 #sudo rm -rf /medha_gateway/config_change/
